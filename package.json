@@ -2,17 +2,21 @@
   "name": "App_Cine",
   "version": "1.0.0",
   "scripts": {
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "start": "expo start",
+    "graphql": "json-graphql-server datos.json --p 3000",
     "prebuild": "expo prebuild",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/vector-icons": "^15.0.3",
+    "axios": "^1.13.2",
     "clsx": "^2.1.1",
     "expo": "^54.0.0",
+    "expo-image": "~3.0.11",
     "expo-status-bar": "~3.0.8",
     "graphql-request": "^7.4.0",
     "json-graphql-server": "^3.3.0",
@@ -22,6 +26,7 @@
     "react-native-reanimated": "~4.1.1",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-safe-area-view": "^2.0.0",
+    "react-native-vector-icons": "^10.3.0",
     "react-native-worklets": "0.5.1"
   },
   "devDependencies": {
