@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, useWindowDimensions, View } from 'react-native'
 import React from 'react'
 import clsx from 'clsx'
 import { Image } from 'expo-image'
@@ -12,12 +12,13 @@ type BannerProps = {
 }
 
 export function Banner({source,className}:BannerProps) {
+  const resolucion = useWindowDimensions()
   return (
     <View className={clsx("w-full ",className)}>
       <Image
       source={source}
       contentFit='fill'
-      style={{height:200}}
+      style={{height:resolucion.width>768?400:200}}
       />
     </View>
   )

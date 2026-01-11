@@ -1,7 +1,6 @@
-import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import './global.css';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Toolbar from 'components/Toolbar';
 import { ImageBanner, ImagenBanner, Pelicula, Peliculas } from 'model/Types';
@@ -17,6 +16,9 @@ export default function App() {
   const [banners, setBanners] = useState<Array<ImageBanner>>([]);
 
   const [peliculas, setPeliculas] = useState<Peliculas>([]);
+  const web = useWindowDimensions()
+  const [webVersion,setWebVersion] = useState(false)
+
 
   function accionCargarBanners() {
     CargadorBAnner()
@@ -51,16 +53,28 @@ export default function App() {
   useEffect(() => {
     accionCaragrPeliculas();
   }, []);
+  useEffect(()=> {
+    setWebVersion(web.width>=1024)
+    },[web.width]);
 
   return (
-    <SafeAreaView className="flex-1">
+    <View className="flex-1">
       <ScrollView>
+        <View className='lg:bg-blue-50'>
+        <View className='bg-background dark:bg-darkBackground lg:max-w-[1200px] lg:mx-auto lg:px-4'>
         <Toolbar />
         <Banner source={getBanner('central').urlFoto} />
         <Buscador />
         <VisorPeliculas peliculas={peliculas}/>
-       
+        {
+          webVersion &&(
+              <Banner source={getBanner("superior").urlFoto} /> 
+            )
+        }
+      </View>
+      </View>
+
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

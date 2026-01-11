@@ -2,15 +2,15 @@ import { Pressable, Text, TextInput, View } from 'react-native';
 import React from 'react';
 import clsx from 'clsx';
 
-const style = {styleButton:"border-2 border-orange-500 p-3 justify-center items-center my-2",
-              styleText:"text-[#b4a494] font-semibold mb-2 text-m",
-              styleInput:"bg-white px-3 py-3 border border-gray-300"
+const style = {styleButton:"border-2 border-orange-500 p-3 justify-center items-center my-2 md:px-20 lg:px-5 lg:mx-1",
+              styleText:"text-text dark:text-darkText font-semibold mb-2 text-m",
+              styleInput:"bg-white px-3 py-3 border border-gray-300 w-full md:w-60 lg:w-30"
 }
 
 export function Buscador() {
   return (
-    <View className="bg-gray-200 px-4 py-2">
-      <View className="flex-column  ">
+    <View className="bg-backgroundSecondary dark:bg-darkBackgroundSecondary px-4 py-2 md:justify-between md:items-center md:flex md:flex-row">
+      <View className="flex-col md:flex-row lg:flex-row">
 
         <Pressable className={clsx("bg-orange-500",style.styleButton)}>
           <Text className="text-white font-bold text-l">YA A LA VENTA</Text>
@@ -25,7 +25,7 @@ export function Buscador() {
         </Pressable>
 
       </View>
-      <View className="mt-4 space-y-4">
+      <View className="mt-4 space-y-4 md:flex-row md:items-center md:space-x-4 lg:space-y-0">
         <View>
           <Text className={clsx(style.styleText)}>Cine</Text>
           <TextInput

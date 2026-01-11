@@ -10,9 +10,9 @@ type BotonProps = {
 
 export function Boton({texto,relleno,className}:BotonProps) {
   return (
-    <Pressable className={clsx('px-6 py-3', relleno ? 'bg-[#ff4f2e]' : 'bg-white border-2 border-[#ff4f2e]')}
+    <Pressable className={clsx('px-6 py-3', relleno ? 'bg-primary dark:bg-darkPrimary' : 'bg-white border-2 border-primary dark:border-darkPrimary')}
       onPress={() => console.log("hola")}>
-      <Text className={clsx('color-center font-semibold', relleno ? 'color-white' : "color-[#ff4f2e]", className)}>{texto}</Text>
+      <Text className={clsx('text-center font-semibold', relleno ? 'color-white' : "color-primary dark:color-darkPrimary", className)}>{texto}</Text>
     </Pressable>
   )
 }
